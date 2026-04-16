@@ -12,7 +12,7 @@ export function GanttSection() {
 
         <div className="gantt" aria-label="Gantt chart placeholder">
           <div className="gantt__header">
-            <div>Workstream</div>
+            <div>Task</div>
             {ganttWeeks.map((week) => (
               <div key={week}>{week}</div>
             ))}

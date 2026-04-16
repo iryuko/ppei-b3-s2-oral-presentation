@@ -570,8 +570,8 @@ p {
 
 .gantt__header {
   display: grid;
-  grid-template-columns: 17rem repeat(8, minmax(4.8rem, 1fr));
-  min-width: 58rem;
+  grid-template-columns: 17rem repeat(11, minmax(4.9rem, 1fr));
+  min-width: 71rem;
   background: #edf3f8;
   border-bottom: 1px solid var(--line);
 }
@@ -594,8 +594,8 @@ p {
 
 .gantt__row {
   display: grid;
-  grid-template-columns: 17rem minmax(38.4rem, 1fr);
-  min-width: 58rem;
+  grid-template-columns: 17rem minmax(53.9rem, 1fr);
+  min-width: 71rem;
   border-bottom: 1px solid var(--line);
 }
 
@@ -629,7 +629,7 @@ p {
 .gantt__timeline {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(8, minmax(4.8rem, 1fr));
+  grid-template-columns: repeat(11, minmax(4.9rem, 1fr));
 }
 
 .gantt__week-cell {

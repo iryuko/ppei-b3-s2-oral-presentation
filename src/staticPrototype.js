@@ -144,7 +144,7 @@ function renderGantt() {
         )}
         <div class="gantt" aria-label="Gantt chart placeholder">
           <div class="gantt__header">
-            <div>Workstream</div>
+            <div>Task</div>
             ${ganttWeeks.map((week) => `<div>${week}</div>`).join("")}
           </div>
           ${ganttTasks

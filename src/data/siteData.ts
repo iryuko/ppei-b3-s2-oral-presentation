@@ -176,50 +176,88 @@ export const teamMembers: TeamMember[] = [
   },
 ];
 
-export const ganttWeeks = ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8"];
+export const ganttWeeks = ["3-Mar", "5-Mar", "7-Mar", "8-Mar", "9-Mar", "15-Mar", "18-Mar", "20-Mar", "27-Mar", "12-Apr", "17-Apr"];
 
 export const ganttTasks: GanttTask[] = [
   {
-    id: "topic-framing",
-    label: "Topic framing & role allocation",
-    owner: "All members",
+    id: "learn-skills-plan",
+    label: "Learn skills and plan",
+    owner: "LIN, LU, WANG, SUI",
     startWeek: 1,
     endWeek: 2,
-    tone: "blue",
-  },
-  {
-    id: "interview-prep",
-    label: "Professional interview preparation",
-    owner: "Interview group",
-    startWeek: 2,
-    endWeek: 4,
     tone: "green",
-    milestone: "Guide validated",
   },
   {
-    id: "database",
-    label: "Database structure & information entry",
-    owner: "Data group",
-    startWeek: 3,
-    endWeek: 5,
+    id: "design-business-card",
+    label: "Design business card",
+    owner: "LIN, LU, WANG, SUI",
+    startWeek: 2,
+    endWeek: 7,
     tone: "amber",
   },
   {
-    id: "interactome",
-    label: "Interactome analysis and visual redesign",
-    owner: "Analysis group",
-    startWeek: 4,
+    id: "design-questionnaire",
+    label: "Design questionnaire",
+    owner: "LIN, LU",
+    startWeek: 2,
+    endWeek: 4,
+    tone: "green",
+  },
+  {
+    id: "contact-company",
+    label: "Contact company",
+    owner: "LU",
+    startWeek: 5,
     endWeek: 6,
+    tone: "green",
+  },
+  {
+    id: "interview-1",
+    label: "Interview 1",
+    owner: "LIN, LU, WANG, SUI",
+    startWeek: 7,
+    endWeek: 10,
+    tone: "blue",
+  },
+  {
+    id: "interview-2",
+    label: "Interview 2",
+    owner: "LIN, LU, WANG, SUI",
+    startWeek: 7,
+    endWeek: 10,
+    tone: "green",
+  },
+  {
+    id: "interview-3",
+    label: "Interview 3",
+    owner: "LIN, LU, WANG, SUI",
+    startWeek: 7,
+    endWeek: 10,
     tone: "violet",
   },
   {
-    id: "website",
-    label: "Website prototype and presentation rehearsal",
-    owner: "Full team",
-    startWeek: 5,
-    endWeek: 8,
+    id: "speed-meeting",
+    label: "Speed meeting",
+    owner: "LIN, LU, WANG, SUI",
+    startWeek: 9,
+    endWeek: 10,
+    tone: "amber",
+  },
+  {
+    id: "organize-information",
+    label: "Organize the information",
+    owner: "LIN, WANG, SUI",
+    startWeek: 9,
+    endWeek: 11,
     tone: "blue",
-    milestone: "Final rehearsal",
+  },
+  {
+    id: "report",
+    label: "Report",
+    owner: "LIN, LU, WANG, SUI",
+    startWeek: 10,
+    endWeek: 11,
+    tone: "green",
   },
 ];
 
@@ -300,77 +338,189 @@ export const interactomeEdges: InteractomeEdge[] = [
   { source: "xianfa-tan", target: "weitao-du", style: "dashed" },
 ];
 
-const sharedCategories: DatabaseCategory[] = [
-  {
-    id: "identity",
-    title: "Identity & role",
-    fields: [
-      { label: "Current position", value: "Placeholder role title" },
-      { label: "Organization type", value: "Placeholder organization" },
-      { label: "Main responsibility", value: "Placeholder responsibility" },
-      { label: "International exposure", value: "Placeholder experience" },
-    ],
-  },
-  {
-    id: "career-path",
-    title: "Career path",
-    fields: [
-      { label: "Entry route", value: "Placeholder route into the field" },
-      { label: "Key transition", value: "Placeholder career transition" },
-      { label: "Decision factor", value: "Placeholder decision factor" },
-      { label: "Future outlook", value: "Placeholder future view" },
-    ],
-  },
-  {
-    id: "skills",
-    title: "Skills & methods",
-    fields: [
-      { label: "Core skills", value: "Placeholder skill cluster" },
-      { label: "Tools", value: "Placeholder tools and methods" },
-      { label: "Soft skills", value: "Placeholder communication point" },
-      { label: "Learning habit", value: "Placeholder learning strategy" },
-    ],
-  },
-  {
-    id: "collaboration",
-    title: "Collaboration & ethics",
-    fields: [
-      { label: "Teamwork", value: "Placeholder teamwork insight" },
-      { label: "Professional conduct", value: "Placeholder conduct principle" },
-      { label: "Cross-cultural work", value: "Placeholder collaboration note" },
-      { label: "Risk awareness", value: "Placeholder risk or ethics note" },
-    ],
-  },
-  {
-    id: "advice",
-    title: "Advice & resources",
-    fields: [
-      { label: "Main advice", value: "Placeholder main advice" },
-      { label: "Recommended resource", value: "Placeholder resource" },
-      { label: "Common mistake", value: "Placeholder caution" },
-      { label: "Next step", value: "Placeholder next step" },
-    ],
-  },
-];
-
 export const professionals: Professional[] = [
   {
-    id: "professional-1",
-    name: "Professional 1",
-    headline: "Research-oriented professional placeholder",
-    categories: sharedCategories,
+    id: "xianfa-tan",
+    name: "Xianfa TAN",
+    headline: "Sales Director · Sales departments",
+    categories: [
+      {
+        id: "profile",
+        title: "Personal profile",
+        fields: [
+          { label: "Age", value: "40-" },
+          { label: "Gender", value: "male" },
+          { label: "Marital status", value: "married" },
+          { label: "Birthplace / Country", value: "Hubei, China" },
+        ],
+      },
+      {
+        id: "education",
+        title: "Education & entry",
+        fields: [
+          { label: "Major in college", value: "medical" },
+          { label: "Education background", value: "bachelor" },
+          { label: "College of graduation", value: "Tongji Medical College" },
+          { label: "Hire date", value: "2021" },
+        ],
+      },
+      {
+        id: "role",
+        title: "Company & role",
+        fields: [
+          { label: "Company", value: "Not specified in the source table" },
+          { label: "Department", value: "sales departments" },
+          { label: "Duty of job", value: "sales director" },
+          { label: "Wages monthly", value: "-" },
+        ],
+      },
+      {
+        id: "work",
+        title: "Work conditions",
+        fields: [
+          { label: "Working hours", value: "Relatively flexible" },
+          { label: "Characteristics", value: "aspirant" },
+          { label: "Common troubles in the job", value: "How to adapt the changing medical environment" },
+        ],
+      },
+      {
+        id: "experience",
+        title: "Experience & motivation",
+        fields: [
+          {
+            label: "Working experience",
+            value: "Ever was a doctor, then worked at a medical-technology company for 15 years, and now established a company with friends",
+          },
+          {
+            label: "Reasons for choosing the job",
+            value: "To find a better platform enabling individuals to exert their own influence",
+          },
+        ],
+      },
+    ],
   },
   {
-    id: "professional-2",
-    name: "Professional 2",
-    headline: "Industry-oriented professional placeholder",
-    categories: sharedCategories,
+    id: "mei-yang",
+    name: "Mei YANG",
+    headline: "Manager · Quality control department",
+    categories: [
+      {
+        id: "profile",
+        title: "Personal profile",
+        fields: [
+          { label: "Age", value: "30-" },
+          { label: "Gender", value: "female" },
+          { label: "Marital status", value: "married" },
+          { label: "Birthplace / Country", value: "Hubei, China" },
+        ],
+      },
+      {
+        id: "education",
+        title: "Education & entry",
+        fields: [
+          { label: "Major in college", value: "pharmaceutical engineering" },
+          { label: "Education background", value: "bachelor" },
+          { label: "College of graduation", value: "-" },
+          { label: "Hire date", value: "2009" },
+        ],
+      },
+      {
+        id: "role",
+        title: "Company & role",
+        fields: [
+          { label: "Company", value: "Renfu Pharmaceutical Company" },
+          { label: "Department", value: "quality control department" },
+          { label: "Duty of job", value: "manager" },
+          { label: "Wages monthly", value: "-" },
+        ],
+      },
+      {
+        id: "work",
+        title: "Work conditions",
+        fields: [
+          { label: "Working hours", value: "Eight hours and five days" },
+          { label: "Characteristics", value: "Precise, meticulous and resilient" },
+          { label: "Common troubles in the job", value: "The materials provided by suppliers sometimes are below standard" },
+        ],
+      },
+      {
+        id: "experience",
+        title: "Experience & motivation",
+        fields: [
+          {
+            label: "Working experience",
+            value: "Ever worked at similar department, then entered the company now",
+          },
+          {
+            label: "Reasons for choosing the job",
+            value: "Colleagues cooperate with each other, and the atmosphere is very good.",
+          },
+        ],
+      },
+    ],
   },
   {
-    id: "professional-3",
-    name: "Professional 3",
-    headline: "Interdisciplinary professional placeholder",
-    categories: sharedCategories,
+    id: "nianhua-gong",
+    name: "Nianhua GONG",
+    headline: "Manager · Research & Development",
+    categories: [
+      {
+        id: "profile",
+        title: "Personal profile",
+        fields: [
+          { label: "Age", value: "30-" },
+          { label: "Gender", value: "female" },
+          { label: "Marital status", value: "married" },
+          { label: "Birthplace / Country", value: "Hubei, China" },
+        ],
+      },
+      {
+        id: "education",
+        title: "Education & entry",
+        fields: [
+          { label: "Major in college", value: "Organic chemistry" },
+          { label: "Education background", value: "Master" },
+          { label: "College of graduation", value: "-" },
+          { label: "Hire date", value: "2016" },
+        ],
+      },
+      {
+        id: "role",
+        title: "Company & role",
+        fields: [
+          { label: "Company", value: "Renfu Pharmaceutical Company" },
+          { label: "Department", value: "Research & Development" },
+          { label: "Duty of job", value: "manager" },
+          { label: "Wages monthly", value: "-" },
+        ],
+      },
+      {
+        id: "work",
+        title: "Work conditions",
+        fields: [
+          { label: "Working hours", value: "Eight hours and five days" },
+          { label: "Characteristics", value: "Detailed enough, good at identifying problems and solving them promptly" },
+          {
+            label: "Common troubles in the job",
+            value: "The formula needs to be repeatedly tested and adjusted. The compatibility of different materials varies.",
+          },
+        ],
+      },
+      {
+        id: "experience",
+        title: "Experience & motivation",
+        fields: [
+          {
+            label: "Working experience",
+            value: "Had two working experiences, and involved in the synthesis of organic chemistry",
+          },
+          {
+            label: "Reasons for choosing the job",
+            value: "It is rather difficult to work in a university for people with master degree, so she chose to work in enterprises.",
+          },
+        ],
+      },
+    ],
   },
 ];
 
