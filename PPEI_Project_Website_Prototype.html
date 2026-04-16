@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PPEI_B3_S2 Oral Presentation - Team B Group 4</title>
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --surface-2: #eef3f8;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #dde3ea;
+      --blue: #1e5eff;
+      --green: #1e9b73;
+      --amber: #c98216;
+      --violet: #6d5bd0;
+      --red: #c94c4c;
+      --shadow: 0 18px 48px rgba(23, 32, 51, 0.12);
+      --soft-shadow: 0 10px 28px rgba(23, 32, 51, 0.08);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(247, 248, 250, 0.96)),
+        radial-gradient(circle at 22% 8%, rgba(30, 94, 255, 0.10), transparent 28%),
+        radial-gradient(circle at 78% 4%, rgba(30, 155, 115, 0.09), transparent 30%),
+        var(--bg);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .institution-strip {
+      position: fixed;
+      z-index: 50;
+      top: 22px;
+      left: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px;
+      border: 1px solid rgba(221, 227, 234, 0.86);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 10px 30px rgba(23, 32, 51, 0.08);
+      backdrop-filter: blur(16px);
+    }
+
+    .institution-link {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .institution-link:hover {
+      transform: translateY(-2px);
+      border-color: var(--blue);
+      box-shadow: 0 8px 18px rgba(30, 94, 255, 0.16);
+    }
+
+    .institution-divider {
+      width: 1px;
+      height: 22px;
+      background: var(--line);
+    }
+
+    .nav-control {
+      position: fixed;
+      z-index: 60;
+      top: 24px;
+      right: 28px;
+    }
+
+    .nav-trigger {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(221, 227, 234, 0.94);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 12px 30px rgba(23, 32, 51, 0.10);
+      cursor: pointer;
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-trigger svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--ink);
+      transition: transform 220ms ease;
+    }
+
+    .nav-control.open .nav-trigger svg {
+      transform: rotate(90deg);
+    }
+
+    .nav-panel {
+      position: absolute;
+      top: 58px;
+      right: 0;
+      width: 340px;
+      padding: 10px;
+      border: 1px solid rgba(221, 227, 234, 0.94);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition: opacity 180ms ease, transform 180ms ease;
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-control.open .nav-panel {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .nav-panel a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 650;
+      transition: background 160ms ease, color 160ms ease;
+    }
+
+    .nav-panel a:hover {
+      background: #eef3ff;
+      color: var(--blue);
+    }
+
+    .page-section {
+      position: relative;
+      padding: 112px 24px;
+      scroll-margin-top: 72px;
+    }
+
+    .section-inner {
+      width: min(100%, var(--max));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 880px;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 44px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      font-size: 21px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .section-lead {
+      max-width: 760px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .hero {
+      min-height: 900px;
+      display: grid;
+      align-items: center;
+      padding-top: 168px;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -120px 80px auto;
+      width: 620px;
+      height: 420px;
+      background:
+        linear-gradient(135deg, rgba(30, 94, 255, 0.14), rgba(30, 155, 115, 0.10)),
+        repeating-linear-gradient(90deg, rgba(23, 32, 51, 0.08) 0 1px, transparent 1px 58px),
+        repeating-linear-gradient(0deg, rgba(23, 32, 51, 0.06) 0 1px, transparent 1px 58px);
+      border: 1px solid rgba(221, 227, 234, 0.85);
+      border-radius: 28px;
+      transform: rotate(-6deg);
+      opacity: 0.75;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+      gap: 72px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-copy .subhead {
+      max-width: 760px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 21px;
+      line-height: 1.7;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .research-panel {
+      position: relative;
+      z-index: 2;
+      min-height: 428px;
+      padding: 30px;
+      border: 1px solid rgba(221, 227, 234, 0.9);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--soft-shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .research-panel header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+
+    .panel-title {
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .panel-caption {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .status-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(30, 155, 115, 0.12);
+    }
+
+    .flow-map {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .flow-node {
+      min-height: 94px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .flow-node strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .flow-node span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .flow-node:nth-child(2) {
+      border-color: rgba(30, 94, 255, 0.45);
+      background: #f4f7ff;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 44px;
+    }
+
+    .profile-card {
+      min-height: 382px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: 0 1px 0 rgba(23, 32, 51, 0.04);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .profile-card:hover {
+      transform: scale(1.025);
+      border-color: rgba(30, 94, 255, 0.62);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .portrait {
+      display: grid;
+      place-items: center;
+      height: 150px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(30, 94, 255, 0.16), rgba(30, 155, 115, 0.18)),
+        #eef3f8;
+      color: var(--ink);
+      font-size: 38px;
+      font-weight: 850;
+    }
+
+    .profile-card h3 {
+      margin-top: 18px;
+    }
+
+    .profile-role {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .profile-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .profile-list div {
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .value {
+      display: block;
+      margin-top: 4px;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .gantt-shell {
+      margin-top: 44px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .gantt-header,
+    .gantt-row {
+      display: grid;
+      grid-template-columns: 250px repeat(8, 1fr);
+      min-width: 920px;
+    }
+
+    .gantt-header {
+      border-bottom: 1px solid var(--line);
+      background: #f0f4f8;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .gantt-header div,
+    .gantt-task,
+    .week-cell {
+      min-height: 52px;
+      padding: 14px;
+      border-right: 1px solid var(--line);
+    }
+
+    .gantt-header div:last-child,
+    .gantt-row div:last-child {
+      border-right: 0;
+    }
+
+    .gantt-row {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .gantt-row:last-child {
+      border-bottom: 0;
+    }
+
+    .gantt-task {
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 750;
+      background: #fbfcfe;
+    }
+
+    .week-cell {
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(221, 227, 234, 0.52), rgba(221, 227, 234, 0.52)) left / 1px 100% no-repeat;
+    }
+
+    .bar {
+      position: absolute;
+      top: 16px;
+      left: 8px;
+      right: 8px;
+      height: 20px;
+      border-radius: 999px;
+      background: var(--blue);
+      transition: filter 160ms ease, transform 160ms ease;
+    }
+
+    .bar:hover {
+      filter: brightness(0.95);
+      transform: translateY(-1px);
+    }
+
+    .bar.green {
+      background: var(--green);
+    }
+
+    .bar.amber {
+      background: var(--amber);
+    }
+
+    .bar.violet {
+      background: var(--violet);
+    }
+
+    .milestone::after {
+      content: "";
+      position: absolute;
+      top: 18px;
+      left: calc(50% - 7px);
+      width: 14px;
+      height: 14px;
+      transform: rotate(45deg);
+      border-radius: 2px;
+      background: var(--ink);
+    }
+
+    .data-layout {
+      display: grid;
+      grid-template-columns: minmax(420px, 0.88fr) minmax(0, 1.12fr);
+      gap: 28px;
+      margin-top: 44px;
+      align-items: stretch;
+    }
+
+    .analysis-card,
+    .database-card,
+    .summary-card,
+    .advice-card,
+    .empty-state {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: 0 1px 0 rgba(23, 32, 51, 0.04);
+    }
+
+    .analysis-card,
+    .database-card {
+      padding: 24px;
+    }
+
+    .card-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .card-heading p {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .network {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      background:
+        radial-gradient(circle at center, rgba(30, 94, 255, 0.08), transparent 46%),
+        #f7fafc;
+      border: 1px solid var(--line);
+    }
+
+    .edge {
+      stroke: #aeb9c7;
+      stroke-width: 1.5;
+      transition: stroke 160ms ease, opacity 160ms ease;
+    }
+
+    .node circle {
+      fill: #ffffff;
+      stroke: var(--blue);
+      stroke-width: 2;
+      transition: r 160ms ease, stroke-width 160ms ease, fill 160ms ease;
+    }
+
+    .node text {
+      fill: var(--ink);
+      font-size: 12px;
+      font-weight: 750;
+      text-anchor: middle;
+      pointer-events: none;
+    }
+
+    .node:hover circle {
+      r: 22;
+      fill: #eef3ff;
+      stroke-width: 4;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .tab {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #f8fafc;
+      color: var(--muted);
+      min-height: 38px;
+      padding: 0 14px;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      background: var(--ink);
+      color: #ffffff;
+      border-color: var(--ink);
+    }
+
+    .person-panel {
+      display: none;
+    }
+
+    .person-panel.active {
+      display: block;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fbfcfe;
+      overflow: hidden;
+    }
+
+    details + details {
+      margin-top: 10px;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 14px 16px;
+      font-weight: 800;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      float: right;
+      color: var(--blue);
+    }
+
+    details[open] summary::after {
+      content: "-";
+    }
+
+    .dimension-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      padding: 0 16px 16px;
+    }
+
+    .dimension {
+      min-height: 66px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .dimension strong {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .dimension span {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .summary-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+      gap: 28px;
+      margin-top: 44px;
+      align-items: start;
+    }
+
+    .summary-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .summary-card {
+      padding: 20px;
+    }
+
+    .summary-card p,
+    .advice-card p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .advice-card {
+      min-height: 466px;
+      padding: 28px;
+      border-color: rgba(30, 94, 255, 0.30);
+      background:
+        linear-gradient(180deg, rgba(238, 243, 255, 0.72), rgba(255, 255, 255, 0.96)),
+        var(--surface);
+    }
+
+    .advice-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .advice-item {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      border: 1px solid rgba(30, 94, 255, 0.16);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.74);
+    }
+
+    .advice-index {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: var(--blue);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .advice-item strong {
+      display: block;
+      font-size: 15px;
+    }
+
+    .advice-item span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .empty-state {
+      margin-top: 44px;
+      padding: 34px;
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(30, 94, 255, 0.06), rgba(30, 155, 115, 0.06)),
+        var(--surface);
+    }
+
+    .empty-icon {
+      display: grid;
+      place-items: center;
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 20px;
+      border: 1px solid rgba(30, 94, 255, 0.24);
+      border-radius: 999px;
+      background: #eef3ff;
+      color: var(--blue);
+      font-size: 30px;
+      font-weight: 850;
+    }
+
+    .empty-state p {
+      max-width: 620px;
+      margin: 12px auto 0;
+      color: var(--muted);
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .evidence-slot {
+      display: grid;
+      place-items: center;
+      min-height: 126px;
+      border: 1px dashed #aeb9c7;
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 750;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    footer {
+      padding: 42px 24px 72px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1040px) {
+      .hero-grid,
+      .data-layout,
+      .summary-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .institution-strip {
+        top: 14px;
+        left: 14px;
+      }
+
+      .institution-link {
+        width: 38px;
+        height: 38px;
+      }
+
+      .nav-control {
+        top: 14px;
+        right: 14px;
+      }
+
+      .nav-panel {
+        width: min(340px, calc(100vw - 28px));
+      }
+
+      .page-section {
+        padding: 84px 18px;
+      }
+
+      .hero {
+        padding-top: 128px;
+        min-height: auto;
+      }
+
+      .team-grid,
+      .dimension-grid,
+      .evidence-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gantt-shell {
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="institution-strip" aria-label="Institutional links">
+    <a class="institution-link" href="https://www.hust.edu.cn/" aria-label="Huazhong University of Science and Technology">HUST</a>
+    <span class="institution-divider" aria-hidden="true"></span>
+    <a class="institution-link" href="https://www.universite-paris-saclay.fr/" aria-label="Universite Paris-Saclay">UPS</a>
+  </div>
+
+  <div class="nav-control" id="navControl">
+    <button class="nav-trigger" id="navTrigger" type="button" aria-expanded="false" aria-controls="navPanel" aria-label="Open navigation">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 5v14l11-7z"></path>
+      </svg>
+    </button>
+    <nav class="nav-panel" id="navPanel" aria-label="Page navigation">
+      <a href="#home">Home <span>01</span></a>
+      <a href="#team">Team Stuff <span>02</span></a>
+      <a href="#gantt">Gantt Chart of Team Work Management <span>03</span></a>
+      <a href="#database">Database &amp; Interactome <span>04</span></a>
+      <a href="#summary">Resume / Summary + Main Advice <span>05</span></a>
+      <a href="#proof">Proof of Professional Behavior <span>06</span></a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="page-section hero" id="home">
+      <div class="section-inner hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Final Oral Presentation</span>
+          <h1>PPEI_B3_S2 Oral Presentation Project Website</h1>
+          <p class="subhead">A structured academic homepage for Team B, Group 4, documenting team management, interview research, interactome analysis, and professional behavior evidence.</p>
+          <div class="meta-row" aria-label="Project metadata">
+            <span class="meta-pill">Team B</span>
+            <span class="meta-pill">Group 4</span>
+            <span class="meta-pill">Academic Project Homepage</span>
+            <span class="meta-pill">International Collaboration</span>
+          </div>
+        </div>
+        <aside class="research-panel" aria-label="Project system preview">
+          <header>
+            <div>
+              <div class="panel-title">Project Knowledge System</div>
+              <div class="panel-caption">Presentation-friendly structure for live navigation</div>
+            </div>
+            <span class="status-dot" aria-hidden="true"></span>
+          </header>
+          <div class="flow-map">
+            <div class="flow-node"><strong>Team</strong><span>Roles, interests, and responsibilities</span></div>
+            <div class="flow-node"><strong>Workflow</strong><span>Timeline and task management</span></div>
+            <div class="flow-node"><strong>Interview Data</strong><span>Professionals, dimensions, and findings</span></div>
+            <div class="flow-node"><strong>Interactome</strong><span>Concept network and relationships</span></div>
+            <div class="flow-node"><strong>Main Advice</strong><span>Synthesized recommendations</span></div>
+            <div class="flow-node"><strong>Evidence</strong><span>Professional behavior proof</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="page-section" id="team">
+      <div class="section-inner">
+        <span class="eyebrow">Team Stuff</span>
+        <h2>Four contributors shown as equal, parallel profile cards.</h2>
+        <p class="section-lead">Each card is designed to accept a real headshot and detailed information later, while already defining the hover behavior and information hierarchy.</p>
+        <div class="team-grid">
+          <article class="profile-card">
+            <div class="portrait">M1</div>
+            <h3>Member Name</h3>
+            <p class="profile-role">Team B / Group 4</p>
+            <div class="profile-list">
+              <div><span class="label">Basic information</span><span class="value">Program, background, role placeholder</span></div>
+              <div><span class="label">Job(s) of interest</span><span class="value">Research engineer, project manager</span></div>
+              <div><span class="label">Field(s) of activity</span><span class="value">Biotech, data analysis, collaboration</span></div>
+            </div>
+          </article>
+          <article class="profile-card">
+            <div class="portrait">M2</div>
+            <h3>Member Name</h3>
+            <p class="profile-role">Team B / Group 4</p>
+            <div class="profile-list">
+              <div><span class="label">Basic information</span><span class="value">Program, background, role placeholder</span></div>
+              <div><span class="label">Job(s) of interest</span><span class="value">Clinical specialist, consultant</span></div>
+              <div><span class="label">Field(s) of activity</span><span class="value">Healthcare, translation, ethics</span></div>
+            </div>
+          </article>
+          <article class="profile-card">
+            <div class="portrait">M3</div>
+            <h3>Member Name</h3>
+            <p class="profile-role">Team B / Group 4</p>
+            <div class="profile-list">
+              <div><span class="label">Basic information</span><span class="value">Program, background, role placeholder</span></div>
+              <div><span class="label">Job(s) of interest</span><span class="value">Data scientist, product analyst</span></div>
+              <div><span class="label">Field(s) of activity</span><span class="value">Database, interactome, AI tools</span></div>
+            </div>
+          </article>
+          <article class="profile-card">
+            <div class="portrait">M4</div>
+            <h3>Member Name</h3>
+            <p class="profile-role">Team B / Group 4</p>
+            <div class="profile-list">
+              <div><span class="label">Basic information</span><span class="value">Program, background, role placeholder</span></div>
+              <div><span class="label">Job(s) of interest</span><span class="value">R&amp;D coordinator, academic liaison</span></div>
+              <div><span class="label">Field(s) of activity</span><span class="value">Research, communication, management</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" id="gantt">
+      <div class="section-inner">
+        <span class="eyebrow">Gantt Chart</span>
+        <h2>A web-native timeline instead of a pasted chart image.</h2>
+        <p class="section-lead">The structure preserves the logic of a Gantt chart while making it readable, responsive, and visually aligned with the website.</p>
+        <div class="gantt-shell" aria-label="Gantt chart visual">
+          <div class="gantt-header">
+            <div>Workstream</div>
+            <div>W1</div><div>W2</div><div>W3</div><div>W4</div><div>W5</div><div>W6</div><div>W7</div><div>W8</div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-task">Topic framing &amp; team roles</div>
+            <div class="week-cell"><span class="bar"></span></div><div class="week-cell"><span class="bar"></span></div><div class="week-cell"></div><div class="week-cell"></div><div class="week-cell"></div><div class="week-cell"></div><div class="week-cell"></div><div class="week-cell"></div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-task">Professional interview preparation</div>
+            <div class="week-cell"></div><div class="week-cell"><span class="bar green"></span></div><div class="week-cell"><span class="bar green"></span></div><div class="week-cell milestone"></div><div class="week-cell"></div><div class="week-cell"></div><div class="week-cell"></div><div class="week-cell"></div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-task">Database construction</div>
+            <div class="week-cell"></div><div class="week-cell"></div><div class="week-cell"><span class="bar amber"></span></div><div class="week-cell"><span class="bar amber"></span></div><div class="week-cell"><span class="bar amber"></span></div><div class="week-cell"></div><div class="week-cell"></div><div class="week-cell"></div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-task">Interactome redesign</div>
+            <div class="week-cell"></div><div class="week-cell"></div><div class="week-cell"></div><div class="week-cell"><span class="bar violet"></span></div><div class="week-cell"><span class="bar violet"></span></div><div class="week-cell"><span class="bar violet"></span></div><div class="week-cell"></div><div class="week-cell"></div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-task">Website build &amp; rehearsal</div>
+            <div class="week-cell"></div><div class="week-cell"></div><div class="week-cell"></div><div class="week-cell"></div><div class="week-cell"><span class="bar"></span></div><div class="week-cell"><span class="bar"></span></div><div class="week-cell"><span class="bar"></span></div><div class="week-cell milestone"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" id="database">
+      <div class="section-inner">
+        <span class="eyebrow">Database &amp; Interactome</span>
+        <h2>Analytical network first, structured database second.</h2>
+        <p class="section-lead">This section avoids a dense raw table by separating the conceptual network from expandable interview dimensions.</p>
+        <div class="data-layout">
+          <article class="analysis-card">
+            <div class="card-heading">
+              <div>
+                <h3>Interactome</h3>
+                <p>Web-style concept map with hoverable nodes and clear relationships.</p>
+              </div>
+              <span class="tag">Interactive visual</span>
+            </div>
+            <svg class="network" viewBox="0 0 520 420" role="img" aria-label="Interactome network placeholder">
+              <line class="edge" x1="260" y1="210" x2="150" y2="96"></line>
+              <line class="edge" x1="260" y1="210" x2="370" y2="96"></line>
+              <line class="edge" x1="260" y1="210" x2="92" y2="238"></line>
+              <line class="edge" x1="260" y1="210" x2="428" y2="238"></line>
+              <line class="edge" x1="260" y1="210" x2="178" y2="332"></line>
+              <line class="edge" x1="260" y1="210" x2="342" y2="332"></line>
+              <line class="edge" x1="150" y1="96" x2="370" y2="96"></line>
+              <line class="edge" x1="92" y1="238" x2="178" y2="332"></line>
+              <line class="edge" x1="428" y1="238" x2="342" y2="332"></line>
+              <g class="node"><circle cx="260" cy="210" r="30"></circle><text x="260" y="215">PPEI</text></g>
+              <g class="node"><circle cx="150" cy="96" r="20"></circle><text x="150" y="101">Careers</text></g>
+              <g class="node"><circle cx="370" cy="96" r="20"></circle><text x="370" y="101">Skills</text></g>
+              <g class="node"><circle cx="92" cy="238" r="20"></circle><text x="92" y="243">Ethics</text></g>
+              <g class="node"><circle cx="428" cy="238" r="20"></circle><text x="428" y="243">Network</text></g>
+              <g class="node"><circle cx="178" cy="332" r="20"></circle><text x="178" y="337">Advice</text></g>
+              <g class="node"><circle cx="342" cy="332" r="20"></circle><text x="342" y="337">Evidence</text></g>
+            </svg>
+          </article>
+          <article class="database-card">
+            <div class="card-heading">
+              <div>
+                <h3>Interview Database</h3>
+                <p>20 dimensions for each professional, grouped to prevent overload.</p>
+              </div>
+              <span class="tag">60 cells structured</span>
+            </div>
+            <div class="tabs" role="tablist" aria-label="Professionals">
+              <button class="tab active" type="button" data-tab="p1">Professional 1</button>
+              <button class="tab" type="button" data-tab="p2">Professional 2</button>
+              <button class="tab" type="button" data-tab="p3">Professional 3</button>
+            </div>
+            <div class="person-panel active" id="p1">
+              <details open>
+                <summary>Identity &amp; role</summary>
+                <div class="dimension-grid">
+                  <div class="dimension"><strong>Current position</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Organization type</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Main responsibility</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>International exposure</strong><span>Placeholder value</span></div>
+                </div>
+              </details>
+              <details>
+                <summary>Career path</summary>
+                <div class="dimension-grid">
+                  <div class="dimension"><strong>Entry route</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Key transitions</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Important decisions</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Future outlook</strong><span>Placeholder value</span></div>
+                </div>
+              </details>
+              <details>
+                <summary>Skills, methods, advice</summary>
+                <div class="dimension-grid">
+                  <div class="dimension"><strong>Core skills</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Tools</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Professional behavior</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Main advice</strong><span>Placeholder value</span></div>
+                </div>
+              </details>
+            </div>
+            <div class="person-panel" id="p2">
+              <details open>
+                <summary>Identity &amp; role</summary>
+                <div class="dimension-grid">
+                  <div class="dimension"><strong>Current position</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Organization type</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Main responsibility</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>International exposure</strong><span>Placeholder value</span></div>
+                </div>
+              </details>
+              <details>
+                <summary>Career path</summary>
+                <div class="dimension-grid">
+                  <div class="dimension"><strong>Entry route</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Key transitions</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Important decisions</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Future outlook</strong><span>Placeholder value</span></div>
+                </div>
+              </details>
+            </div>
+            <div class="person-panel" id="p3">
+              <details open>
+                <summary>Identity &amp; role</summary>
+                <div class="dimension-grid">
+                  <div class="dimension"><strong>Current position</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Organization type</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Main responsibility</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>International exposure</strong><span>Placeholder value</span></div>
+                </div>
+              </details>
+              <details>
+                <summary>Skills, methods, advice</summary>
+                <div class="dimension-grid">
+                  <div class="dimension"><strong>Core skills</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Tools</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Professional behavior</strong><span>Placeholder value</span></div>
+                  <div class="dimension"><strong>Main advice</strong><span>Placeholder value</span></div>
+                </div>
+              </details>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" id="summary">
+      <div class="section-inner">
+        <span class="eyebrow">Resume / Summary + Main Advice</span>
+        <h2>Source summaries on the left, final synthesis on the right.</h2>
+        <p class="section-lead">This composition helps the presenter distinguish interview evidence from the team's final recommendations.</p>
+        <div class="summary-layout">
+          <div class="summary-stack">
+            <article class="summary-card">
+              <span class="tag">Interview 01</span>
+              <h3>Professional summary</h3>
+              <p>Placeholder for a concise resume of the first professional interview, including role, experience, and most relevant points for PPEI_B3_S2.</p>
+            </article>
+            <article class="summary-card">
+              <span class="tag">Interview 02</span>
+              <h3>Professional summary</h3>
+              <p>Placeholder for the second interview summary, keeping the same rhythm and length so the live presentation remains balanced.</p>
+            </article>
+            <article class="summary-card">
+              <span class="tag">Interview 03</span>
+              <h3>Professional summary</h3>
+              <p>Placeholder for the third interview summary, designed for later replacement with final notes and selected quotes.</p>
+            </article>
+          </div>
+          <article class="advice-card">
+            <span class="tag">Synthesis</span>
+            <h3>Main advice / recommendations</h3>
+            <p>A larger block for the team's synthesized takeaways. This should become the strongest message of the section.</p>
+            <div class="advice-list">
+              <div class="advice-item"><span class="advice-index">1</span><div><strong>Build transferable professional skills.</strong><span>Connect technical knowledge with communication, organization, and ethical judgment.</span></div></div>
+              <div class="advice-item"><span class="advice-index">2</span><div><strong>Use interviews as evidence, not decoration.</strong><span>Summarize patterns and tensions across all professionals instead of listing raw notes.</span></div></div>
+              <div class="advice-item"><span class="advice-index">3</span><div><strong>Make collaboration visible.</strong><span>Show planning, role distribution, respectful communication, and reliable follow-through.</span></div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" id="proof">
+      <div class="section-inner">
+        <span class="eyebrow">Proof of Professional Behavior</span>
+        <h2>A prepared placeholder for future evidence.</h2>
+        <p class="section-lead">This block is intentionally empty but visually complete, so later screenshots, text, and evidence can be inserted without redesigning the page.</p>
+        <div class="empty-state">
+          <div class="empty-icon">+</div>
+          <h3>Evidence area prepared</h3>
+          <p>Add proof of punctuality, meeting organization, professional communication, interview etiquette, or documented collaboration here.</p>
+          <div class="evidence-grid">
+            <div class="evidence-slot">Screenshot</div>
+            <div class="evidence-slot">Email / Message</div>
+            <div class="evidence-slot">Meeting Note</div>
+            <div class="evidence-slot">Checklist</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    PPEI_B3_S2 / Team B / Group 4 / Final Oral Presentation
+  </footer>
+
+  <script>
+    const navControl = document.getElementById('navControl');
+    const navTrigger = document.getElementById('navTrigger');
+    const navPanel = document.getElementById('navPanel');
+
+    navTrigger.addEventListener('click', () => {
+      const isOpen = navControl.classList.toggle('open');
+      navTrigger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navPanel.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navControl.classList.remove('open');
+        navTrigger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.querySelectorAll('.tab').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+        document.querySelectorAll('.tab').forEach((item) => item.classList.toggle('active', item === tab));
+        document.querySelectorAll('.person-panel').forEach((panel) => {
+          panel.classList.toggle('active', panel.id === target);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
