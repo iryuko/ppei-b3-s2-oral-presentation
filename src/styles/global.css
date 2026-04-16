@@ -577,7 +577,7 @@ p {
 }
 
 .gantt__header div {
-  min-height: 3.4rem;
+  min-height: 3rem;
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -604,7 +604,7 @@ p {
 }
 
 .gantt__task {
-  min-height: 5.2rem;
+  min-height: 4.35rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -616,13 +616,13 @@ p {
 
 .gantt__task strong {
   color: var(--ink);
-  font-size: 0.91rem;
-  line-height: 1.35;
+  font-size: 0.88rem;
+  line-height: 1.28;
 }
 
 .gantt__task span {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 680;
 }
 
@@ -633,7 +633,7 @@ p {
 }
 
 .gantt__week-cell {
-  min-height: 5.2rem;
+  min-height: 4.35rem;
   border-right: 1px solid var(--line);
 }
 
@@ -643,7 +643,7 @@ p {
 
 .gantt__bar {
   align-self: center;
-  height: 1.25rem;
+  height: 1.05rem;
   margin: 0 0.65rem;
   border-radius: 999px;
   z-index: 1;
