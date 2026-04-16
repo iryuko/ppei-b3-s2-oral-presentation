@@ -12,7 +12,9 @@ import {
   navItems,
   professionals,
   projectMeta,
-  proofSlots,
+  proofEvidencePanel,
+  proofTeamRoles,
+  proofTimelineSteps,
   teamMembers,
 } from "./data/siteData.static.js";
 
@@ -58,6 +60,45 @@ function sectionHeader(eyebrow, title, description) {
 
 function panelLabel(label) {
   return `<span class="panel-label">${label}</span>`;
+}
+
+function proofIcon(icon) {
+  if (icon === "contact") {
+    return `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6.5 6.5h11a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2Z"></path>
+        <path d="m6 8 6 4.7L18 8"></path>
+      </svg>
+    `;
+  }
+
+  if (icon === "schedule") {
+    return `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7.5 5.5v3M16.5 5.5v3"></path>
+        <path d="M6.5 7.5h11a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-11a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2Z"></path>
+        <path d="M4.5 11.5h15"></path>
+      </svg>
+    `;
+  }
+
+  if (icon === "roles") {
+    return `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 6.5a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2Z"></path>
+        <path d="M6.8 9.2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10.4 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"></path>
+        <path d="M8.5 17c.5-1.8 2-2.8 3.5-2.8s3 .9 3.5 2.8"></path>
+        <path d="M4.8 17c.2-1.1 1.1-1.9 2.3-1.9m9.8 1.9c-.2-1.1-1.1-1.9-2.3-1.9"></path>
+      </svg>
+    `;
+  }
+
+  return `
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 4.8 18.3 7v4.8c0 3.6-2.1 6.5-6.3 7.9-4.2-1.4-6.3-4.3-6.3-7.9V7L12 4.8Z"></path>
+      <path d="m9.5 12 1.7 1.7 3.3-3.5"></path>
+    </svg>
+  `;
 }
 
 function renderInstitutionDock() {
@@ -389,27 +430,80 @@ function renderProof() {
       <div class="section__inner">
         ${sectionHeader(
           "Proof of Professional Behavior",
-          "A prepared evidence area that does not feel unfinished.",
-          "The current version is intentionally empty but structured for future screenshots, text evidence, images, or behavior records.",
+          "Professional process and supporting evidence",
+          "A documented process showing preparation, coordination, respectful conduct, and privacy-aware evidence.",
         )}
-        <div class="proof-panel">
-          <div class="proof-panel__intro">
-            <span aria-hidden="true">+</span>
-            <h3>Evidence area prepared</h3>
-            <p>Add proof of punctuality, meeting organization, professional communication, interview etiquette, or documented collaboration here.</p>
-          </div>
-          <div class="proof-grid">
-            ${proofSlots
-              .map(
-                (slot) => `
-                  <article class="proof-slot">
-                    <strong>${slot.label}</strong>
-                    <p>${slot.description}</p>
-                  </article>
-                `,
-              )
-              .join("")}
-          </div>
+        <div class="proof-layout">
+          <article class="proof-panel proof-panel--timeline">
+            <div class="panel-heading panel-heading--compact">
+              <div>
+                ${panelLabel("Process Timeline")}
+                <h3>Interview preparation and conduct</h3>
+              </div>
+            </div>
+            <div class="proof-timeline">
+              ${proofTimelineSteps
+                .map(
+                  (step, index) => `
+                    <article class="proof-step">
+                      <div class="proof-step__rail" aria-hidden="true">
+                        <span class="proof-step__dot"></span>
+                        ${index < proofTimelineSteps.length - 1 ? `<span class="proof-step__line"></span>` : ""}
+                      </div>
+                      <div class="proof-step__card">
+                        <div class="proof-step__icon">${proofIcon(step.icon)}</div>
+                        <div class="proof-step__body">
+                          <h4>${step.title}</h4>
+                          <p>${step.description}</p>
+                        </div>
+                      </div>
+                    </article>
+                  `,
+                )
+                .join("")}
+            </div>
+          </article>
+          <article class="proof-panel proof-panel--evidence">
+            <div class="panel-heading panel-heading--compact">
+              <div>
+                ${panelLabel("Supporting Evidence")}
+                <h3>${proofEvidencePanel.title}</h3>
+              </div>
+            </div>
+            <div class="proof-evidence__stack">
+              <section class="proof-evidence__card">
+                <div class="proof-evidence__card-head">
+                  <h4>${proofEvidencePanel.businessCardTitle}</h4>
+                </div>
+                <div class="proof-evidence__image" role="img" aria-label="Business card evidence placeholder">
+                  ${
+                    proofEvidencePanel.businessCardSrc
+                      ? `<img src="${proofEvidencePanel.businessCardSrc}" alt="Business card evidence" />`
+                      : `<div class="proof-evidence__placeholder"><span>Business card evidence</span><p>${proofEvidencePanel.businessCardCaption}</p></div>`
+                  }
+                </div>
+              </section>
+              <section class="proof-evidence__card proof-evidence__note">
+                <h4>${proofEvidencePanel.privacyTitle}</h4>
+                <p>${proofEvidencePanel.privacyNote}</p>
+              </section>
+              <section class="proof-evidence__card">
+                <h4>${proofEvidencePanel.rolesTitle}</h4>
+                <div class="proof-roles">
+                  ${proofTeamRoles
+                    .map(
+                      (assignment) => `
+                        <div class="proof-role">
+                          <span>${assignment.role}</span>
+                          <strong>${assignment.member}</strong>
+                        </div>
+                      `,
+                    )
+                    .join("")}
+                </div>
+              </section>
+            </div>
+          </article>
         </div>
       </div>
     </section>

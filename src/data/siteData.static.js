@@ -351,25 +351,49 @@ export const adviceItems = [
   },
 ];
 
-export const proofSlots = [
+export const proofTimelineSteps = [
   {
-    id: "screenshot",
-    label: "Screenshot",
-    description: "Future image evidence from meetings, coordination, or shared work.",
+    id: "company-contact",
+    title: "Company Contact",
+    description:
+      "We contacted Bokang Pharmaceutical Technology and Renfu Pharmaceutical to request professional interviews with relevant employees.",
+    icon: "contact",
   },
   {
-    id: "message",
-    label: "Email / Message",
-    description: "Future communication record or professional contact proof.",
+    id: "interview-arrangement",
+    title: "Interview Arrangement",
+    description:
+      "We coordinated the available time and place in advance and conducted the interviews on March 18 and March 20.",
+    icon: "schedule",
   },
   {
-    id: "meeting-note",
-    label: "Meeting Note",
-    description: "Future agenda, minutes, or documented decision trail.",
+    id: "role-allocation",
+    title: "Role Allocation",
+    description: "We assigned clear internal roles to keep the interviews organized and efficient.",
+    icon: "roles",
   },
   {
-    id: "checklist",
-    label: "Behavior Checklist",
-    description: "Future punctuality, etiquette, and preparation evidence.",
+    id: "professional-etiquette-privacy",
+    title: "Professional Etiquette and Privacy",
+    description:
+      "We prepared basic refreshments for interviewees and respected their privacy and security concerns. Since they did not agree to photos or video recordings, we used business cards as supporting evidence instead.",
+    icon: "privacy",
   },
 ];
+
+export const proofTeamRoles = [
+  { role: "Interviewer / Moderator", member: "Haoyang LU" },
+  { role: "Scribe", member: "Changxiao SUI" },
+  { role: "Timekeeper", member: "Ziche WANG" },
+  { role: "Final synthesis", member: "Beichen LIN" },
+];
+
+export const proofEvidencePanel = {
+  title: "Supporting Evidence",
+  businessCardTitle: "Business card image area",
+  businessCardCaption: "Placeholder-friendly area reserved for business card images or later replacements.",
+  privacyTitle: "Privacy / Ethics note",
+  privacyNote:
+    "Interviewees requested privacy protection and declined photo or video documentation. Business cards were therefore used as a respectful and non-intrusive form of evidence.",
+  rolesTitle: "Team role distribution",
+};
