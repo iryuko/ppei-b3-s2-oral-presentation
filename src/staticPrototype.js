@@ -178,15 +178,19 @@ function renderInteractome() {
   return `
     <div class="interactome-board">
       <div class="interactome-board__legend" aria-label="Interactome legend">
-        <span class="interactome-board__caption">Graphic symbol</span>
+        <span class="interactome-board__caption">Legend</span>
         <div class="interactome-legend">
           ${interactomeLegendItems
-            .map((item) => `<div class="interactome-legend__item interactome-legend__item--${item.tone}">${item.label}</div>`)
+            .map(
+              (item) => `
+                <div class="interactome-legend__item">
+                  <span class="interactome-legend__dot interactome-legend__dot--${item.tone}" aria-hidden="true"></span>
+                  <span>${item.label}</span>
+                </div>
+              `,
+            )
             .join("")}
         </div>
-      </div>
-      <div class="interactome-board__note">
-        ${interactomeNote.map((line) => `<p>${line}</p>`).join("")}
       </div>
       <svg class="interactome" viewBox="0 0 920 540" role="img" aria-label="Interview interactome network">
       ${interactomeEdges
@@ -201,11 +205,11 @@ function renderInteractome() {
         .map(
           (node) => `
             <g class="interactome__node interactome__node--${node.tone} ${node.id === "group4" ? "interactome__node--core" : "interactome__node--leaf"}" transform="translate(${node.x * 8.2} ${node.y * 5.2})">
-              <ellipse rx="${node.id === "group4" ? 128 : Math.max(node.label.length * 4.9, 76)}" ry="${node.id === "group4" ? 92 : 38}"></ellipse>
-              <text y="${node.id === "group4" ? -34 : 6}">
+              <circle r="${node.id === "group4" ? 96 : 44}"></circle>
+              <text y="${node.id === "group4" ? -46 : -6}">
                 ${node.label
                   .split("\n")
-                  .map((line, index) => `<tspan x="0" dy="${index === 0 ? 0 : 28}">${line}</tspan>`)
+                  .map((line, index) => `<tspan x="0" dy="${index === 0 ? 0 : 21}">${line}</tspan>`)
                   .join("")}
               </text>
               <title>${node.description}</title>
@@ -260,7 +264,7 @@ function renderDatabaseInteractome() {
               <div>
                 ${panelLabel("Interactome")}
                 <h3>Interview relationship map</h3>
-                <p>Legend on the left, network in the center, and a context note on the upper right.</p>
+                <p>${interactomeNote[0]}</p>
               </div>
               <span class="panel-badge">Network</span>
             </div>

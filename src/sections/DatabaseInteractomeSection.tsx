@@ -43,26 +43,21 @@ export function DatabaseInteractomeSection() {
               <div>
                 <PanelLabel>Interactome</PanelLabel>
                 <h3>Interview relationship map</h3>
-                <p>Legend on the left, network in the center, and a context note on the upper right.</p>
+                <p>{interactomeNote[0]}</p>
               </div>
               <span className="panel-badge">Network</span>
             </div>
             <div className="interactome-board">
               <div className="interactome-board__legend" aria-label="Interactome legend">
-                <span className="interactome-board__caption">Graphic symbol</span>
+                <span className="interactome-board__caption">Legend</span>
                 <div className="interactome-legend">
                   {interactomeLegendItems.map((item) => (
-                    <div className={`interactome-legend__item interactome-legend__item--${item.tone}`} key={item.label}>
-                      {item.label}
+                    <div className="interactome-legend__item" key={item.label}>
+                      <span className={`interactome-legend__dot interactome-legend__dot--${item.tone}`} aria-hidden="true" />
+                      <span>{item.label}</span>
                     </div>
                   ))}
                 </div>
-              </div>
-
-              <div className="interactome-board__note">
-                {interactomeNote.map((line) => (
-                  <p key={line}>{line}</p>
-                ))}
               </div>
 
               <svg className="interactome" viewBox="0 0 920 540" role="img" aria-label="Interview interactome network">
@@ -90,13 +85,10 @@ export function DatabaseInteractomeSection() {
                     key={node.id}
                     transform={`translate(${node.x * 8.2} ${node.y * 5.2})`}
                   >
-                    <ellipse
-                      rx={node.id === "group4" ? 128 : Math.max(node.label.length * 4.9, 76)}
-                      ry={node.id === "group4" ? 92 : 38}
-                    />
-                    <text y={node.id === "group4" ? -34 : 6}>
+                    <circle r={node.id === "group4" ? 96 : 44} />
+                    <text y={node.id === "group4" ? -46 : -6}>
                       {node.label.split("\n").map((line, index) => (
-                        <tspan key={`${node.id}-${line}`} x="0" dy={index === 0 ? 0 : 28}>
+                        <tspan key={`${node.id}-${line}`} x="0" dy={index === 0 ? 0 : 21}>
                           {line}
                         </tspan>
                       ))}

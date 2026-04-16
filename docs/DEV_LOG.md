@@ -65,3 +65,4 @@ The machine originally had no `node`, `npm`, `pnpm`, `yarn`, or `bun` command av
 - Renamed floating navigation items to match the visible blue section eyebrows.
 - Prepared GitHub Pages deployment by adding a Pages workflow and configuring Vite's repository base path.
 - Rebuilt the interactome section to follow the provided source image structure: legend in the upper left, contextual note in the upper right, and a named relationship map in the center.
+- Rolled the interactome visual language back to the site's cleaner UI system while keeping the source image's actual names, relationship content, and explanatory sentence.
