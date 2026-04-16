@@ -35,40 +35,56 @@ export const navItems = [
 
 export const teamMembers = [
   {
-    id: "member-1",
-    initials: "M1",
-    name: "Member Name",
-    role: "Research coordination",
-    basicInfo: "Program background and role summary placeholder.",
-    jobsOfInterest: ["Research engineer", "Project coordinator"],
-    fieldsOfActivity: ["Biotechnology", "Data interpretation", "Team communication"],
+    id: "haoyang-lu",
+    initials: "HL",
+    name: "Haoyang LU",
+    role: "Biological Sciences / 3rd year",
+    basicInfo: "ryuko279@gmail.com · PPEI-B3_Group 4",
+    jobsOfInterest: [
+      "Interested in becoming a Biomedical Data Scientist, combining biology, computation, and data-driven problem solving, with a strong focus on bioinformatics, programming, and quantitative analysis.",
+    ],
+    fieldsOfActivity: [
+      "Mainly active in academic research, biotechnology, pharmaceuticals, hospitals, and digital health, especially in genomic data analysis, precision medicine, and biomedical innovation.",
+    ],
   },
   {
-    id: "member-2",
-    initials: "M2",
-    name: "Member Name",
-    role: "Interview preparation",
-    basicInfo: "Program background and role summary placeholder.",
-    jobsOfInterest: ["Clinical specialist", "Scientific consultant"],
-    fieldsOfActivity: ["Healthcare", "Ethics", "Professional communication"],
+    id: "beichen-lin",
+    initials: "BL",
+    name: "Beichen LIN",
+    role: "Biological Sciences / 3rd year",
+    basicInfo: "1046849373@qq.com · PPEI-B3_G4",
+    jobsOfInterest: [
+      "Interested in working as a Teacher, focusing on educating students, preparing lessons, supporting development, and creating an effective learning environment.",
+    ],
+    fieldsOfActivity: [
+      "Mainly oriented toward the education and training sector, including schools and teaching environments such as primary, secondary, higher, vocational, and special education.",
+    ],
   },
   {
-    id: "member-3",
-    initials: "M3",
-    name: "Member Name",
-    role: "Data and interactome",
-    basicInfo: "Program background and role summary placeholder.",
-    jobsOfInterest: ["Data scientist", "Product analyst"],
-    fieldsOfActivity: ["Databases", "Network analysis", "AI-supported research"],
+    id: "changxiao-sui",
+    initials: "CS",
+    name: "Changxiao SUI",
+    role: "Biological Sciences / 3rd year",
+    basicInfo: "u202314223@hust.edu.cn · PPEI2-B3_G4",
+    jobsOfInterest: [
+      "Interested in becoming a Neurobiology Researcher, studying the brain and nervous system through experiments, biological data analysis, and research on neurological disorders.",
+    ],
+    fieldsOfActivity: [
+      "Works mainly in neuroscience and neurobiology, usually in universities, research institutes, hospitals, or biotech and pharmaceutical companies focused on brain science and neurological disease research.",
+    ],
   },
   {
-    id: "member-4",
-    initials: "M4",
-    name: "Member Name",
-    role: "Presentation synthesis",
-    basicInfo: "Program background and role summary placeholder.",
-    jobsOfInterest: ["R&D coordinator", "Academic liaison"],
-    fieldsOfActivity: ["Research strategy", "Public speaking", "Documentation"],
+    id: "ziche-wang",
+    initials: "ZW",
+    name: "Ziche WANG",
+    role: "Biological Sciences / 3rd year",
+    basicInfo: "3208652864@qq.com · PPEI-B3_g4",
+    jobsOfInterest: [
+      "Interested in becoming a Microbiologist, exploring microorganisms such as bacteria, viruses, fungi, and algae through experimental research, pathogen study, and applied microbiology.",
+    ],
+    fieldsOfActivity: [
+      "Mainly active in healthcare, biotechnology, pharmaceuticals, food safety, and agriculture, with applications in disease diagnosis, microbial engineering, and industrial fermentation.",
+    ],
   },
 ];
 
