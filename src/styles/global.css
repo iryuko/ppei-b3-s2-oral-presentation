@@ -1202,7 +1202,7 @@ p {
 }
 
 .proof-evidence__image {
-  aspect-ratio: 1.45 / 1;
+  aspect-ratio: 0.92 / 1;
   overflow: hidden;
   border: 1px dashed rgba(174, 185, 199, 0.9);
   border-radius: var(--radius-md);
@@ -1214,7 +1214,9 @@ p {
 .proof-evidence__image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 0.7rem;
+  background: rgba(255, 255, 255, 0.96);
   display: block;
 }
 

@@ -663,5 +663,6 @@ export const proofEvidencePanel: ProofEvidencePanel = {
   title: "Supporting Evidence",
   businessCardTitle: "Business card image area",
   businessCardCaption: "Placeholder-friendly area reserved for business card images or later replacements.",
+  businessCardSrc: publicAsset("images/Bussiness card.png"),
   rolesTitle: "Team role distribution",
 };
