@@ -119,26 +119,33 @@ export const ganttTasks = [
   },
 ];
 
+export const interactomeLegendItems = [
+  { label: "Sales Director", tone: "blue" },
+  { label: "Research & Development", tone: "violet" },
+  { label: "Quality Control", tone: "green" },
+  { label: "General Manager", tone: "amber" },
+];
+
+export const interactomeNote = [
+  "Two of the interviewees, Mei YANG and Nianhua GONG, refused to provide more contacts in another context because of private security.",
+  "As a result, some potential contacts are intentionally missing from this interactome.",
+];
+
 export const interactomeNodes = [
-  { id: "ppei", label: "PPEI", description: "Central project context", x: 50, y: 50, size: 34, tone: "blue" },
-  { id: "careers", label: "Careers", description: "Professional trajectories", x: 28, y: 22, size: 22, tone: "green" },
-  { id: "skills", label: "Skills", description: "Competencies and methods", x: 72, y: 22, size: 22, tone: "amber" },
-  { id: "ethics", label: "Ethics", description: "Professional conduct", x: 18, y: 58, size: 21, tone: "violet" },
-  { id: "network", label: "Network", description: "Collaboration and contacts", x: 82, y: 58, size: 21, tone: "green" },
-  { id: "advice", label: "Advice", description: "Synthesized recommendations", x: 35, y: 82, size: 22, tone: "blue" },
-  { id: "evidence", label: "Evidence", description: "Proof and documentation", x: 65, y: 82, size: 22, tone: "violet" },
+  { id: "group4", label: "Group4-TeamB\nBeichen LIN\nHaoyang LU\nChangxiao SUI\nZiche WANG", description: "Team B, Group 4 core interview group", x: 50, y: 62, size: 42, tone: "blue" },
+  { id: "nianhua-gong", label: "Nianhua GONG", description: "Research & Development", x: 18, y: 78, size: 25, tone: "violet" },
+  { id: "xianfa-tan", label: "Xianfa TAN", description: "Sales Director", x: 76, y: 54, size: 24, tone: "blue" },
+  { id: "mei-yang", label: "Mei YANG", description: "Quality Control", x: 75, y: 78, size: 21, tone: "green" },
+  { id: "kai-shen", label: "Kai SHEN", description: "General Manager", x: 93, y: 37, size: 22, tone: "amber" },
+  { id: "weitao-du", label: "Weitao DU", description: "General Manager", x: 93, y: 64, size: 22, tone: "amber" },
 ];
 
 export const interactomeEdges = [
-  { source: "ppei", target: "careers" },
-  { source: "ppei", target: "skills" },
-  { source: "ppei", target: "ethics" },
-  { source: "ppei", target: "network" },
-  { source: "ppei", target: "advice" },
-  { source: "ppei", target: "evidence" },
-  { source: "careers", target: "skills" },
-  { source: "ethics", target: "advice" },
-  { source: "network", target: "evidence" },
+  { source: "group4", target: "nianhua-gong" },
+  { source: "group4", target: "xianfa-tan" },
+  { source: "group4", target: "mei-yang" },
+  { source: "xianfa-tan", target: "kai-shen", style: "dashed" },
+  { source: "xianfa-tan", target: "weitao-du", style: "dashed" },
 ];
 
 const sharedCategories = [

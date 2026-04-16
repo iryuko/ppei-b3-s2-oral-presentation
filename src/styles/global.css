@@ -725,56 +725,164 @@ p {
 
 .interactome {
   width: 100%;
-  min-height: 24rem;
+  min-height: 31rem;
+  grid-column: 1 / -1;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   background:
-    radial-gradient(circle at 50% 48%, rgba(36, 88, 230, 0.08), transparent 48%),
+    radial-gradient(circle at 52% 62%, rgba(36, 88, 230, 0.08), transparent 38%),
     var(--surface-quiet);
 }
 
 .interactome__edge {
   stroke: #aeb9c7;
-  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-width: 2.5;
 }
 
-.interactome__node circle {
-  fill: #ffffff;
+.interactome__edge--dashed {
+  stroke: rgba(255, 191, 0, 0.86);
+  stroke-dasharray: 10 9;
+}
+
+.interactome__node ellipse {
   stroke-width: 2.2;
   transition:
-    r 180ms ease,
+    transform 180ms ease,
     fill 180ms ease,
     stroke-width 180ms ease;
 }
 
 .interactome__node text {
   fill: var(--ink);
-  font-size: 0.74rem;
+  font-size: 0.82rem;
   font-weight: 780;
   text-anchor: middle;
   pointer-events: none;
 }
 
-.interactome__node:hover circle {
-  r: 29;
-  fill: var(--blue-soft);
+.interactome__node:hover ellipse {
   stroke-width: 4;
 }
 
-.interactome__node--blue circle {
-  stroke: var(--blue);
+.interactome__node--core ellipse {
+  fill: rgba(36, 88, 230, 0.98);
+  stroke: rgba(36, 88, 230, 0.34);
 }
 
-.interactome__node--green circle {
-  stroke: var(--green);
+.interactome__node--core.interactome__node--blue ellipse {
+  fill: rgba(36, 88, 230, 0.98);
+  stroke: rgba(36, 88, 230, 0.34);
 }
 
-.interactome__node--amber circle {
-  stroke: var(--amber);
+.interactome__node--core text {
+  fill: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 800;
 }
 
-.interactome__node--violet circle {
-  stroke: var(--violet);
+.interactome__node--leaf:hover {
+  transform: translateY(-2px);
+}
+
+.interactome__node--blue ellipse {
+  fill: rgba(255, 101, 116, 0.94);
+  stroke: rgba(255, 101, 116, 0.36);
+}
+
+.interactome__node--green ellipse {
+  fill: rgba(255, 156, 92, 0.94);
+  stroke: rgba(255, 156, 92, 0.36);
+}
+
+.interactome__node--amber ellipse {
+  fill: rgba(255, 208, 12, 0.98);
+  stroke: rgba(255, 208, 12, 0.42);
+}
+
+.interactome__node--violet ellipse {
+  fill: rgba(177, 34, 199, 0.96);
+  stroke: rgba(177, 34, 199, 0.34);
+}
+
+.interactome-board {
+  display: grid;
+  grid-template-columns: minmax(14rem, 17rem) minmax(0, 1fr);
+  gap: 1rem 1.15rem;
+}
+
+.interactome-board__legend,
+.interactome-board__note {
+  min-height: 8.4rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-quiet);
+}
+
+.interactome-board__caption {
+  display: inline-flex;
+  padding: 0.28rem 0.58rem;
+  border-radius: 999px;
+  color: #ffffff;
+  background: var(--ink);
+  font-size: 0.68rem;
+  font-weight: 760;
+}
+
+.interactome-legend {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 0.9rem;
+}
+
+.interactome-legend__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.3rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 760;
+  text-align: center;
+}
+
+.interactome-legend__item--blue {
+  background: rgba(255, 101, 116, 0.94);
+}
+
+.interactome-legend__item--green {
+  background: rgba(255, 156, 92, 0.94);
+}
+
+.interactome-legend__item--amber {
+  background: rgba(255, 208, 12, 0.98);
+}
+
+.interactome-legend__item--violet {
+  color: #ffffff;
+  background: rgba(177, 34, 199, 0.96);
+}
+
+.interactome-board__note {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 0.75rem;
+}
+
+.interactome-board__note p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.interactome-board__note p + p {
+  padding-top: 0.5rem;
+  border-top: 1px dashed rgba(36, 88, 230, 0.2);
 }
 
 .professional-tabs {
@@ -1134,10 +1242,15 @@ p {
   }
 
   .knowledge-panel__grid,
+  .interactome-board,
   .team-grid,
   .accordion__grid,
   .proof-grid {
     grid-template-columns: 1fr;
+  }
+
+  .interactome-legend {
+    grid-template-columns: 1fr 1fr;
   }
 
   .team-card {

@@ -64,3 +64,4 @@ The machine originally had no `node`, `npm`, `pnpm`, `yarn`, or `bun` command av
 - Increased the internal navigation triangle size so it scales visually with the larger circular trigger.
 - Renamed floating navigation items to match the visible blue section eyebrows.
 - Prepared GitHub Pages deployment by adding a Pages workflow and configuring Vite's repository base path.
+- Rebuilt the interactome section to follow the provided source image structure: legend in the upper left, contextual note in the upper right, and a named relationship map in the center.

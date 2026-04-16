@@ -4,6 +4,8 @@ import {
   ganttWeeks,
   institutions,
   interactomeEdges,
+  interactomeLegendItems,
+  interactomeNote,
   interactomeNodes,
   interviewSummaries,
   navItems,
@@ -174,27 +176,45 @@ function renderGantt() {
 
 function renderInteractome() {
   return `
-    <svg class="interactome" viewBox="0 0 520 420" role="img" aria-label="Interactome placeholder network">
+    <div class="interactome-board">
+      <div class="interactome-board__legend" aria-label="Interactome legend">
+        <span class="interactome-board__caption">Graphic symbol</span>
+        <div class="interactome-legend">
+          ${interactomeLegendItems
+            .map((item) => `<div class="interactome-legend__item interactome-legend__item--${item.tone}">${item.label}</div>`)
+            .join("")}
+        </div>
+      </div>
+      <div class="interactome-board__note">
+        ${interactomeNote.map((line) => `<p>${line}</p>`).join("")}
+      </div>
+      <svg class="interactome" viewBox="0 0 920 540" role="img" aria-label="Interview interactome network">
       ${interactomeEdges
         .map((edge) => {
           const source = nodeById.get(edge.source);
           const target = nodeById.get(edge.target);
           if (!source || !target) return "";
-          return `<line class="interactome__edge" x1="${source.x * 5.2}" y1="${source.y * 4.2}" x2="${target.x * 5.2}" y2="${target.y * 4.2}"></line>`;
+          return `<line class="interactome__edge ${edge.style === "dashed" ? "interactome__edge--dashed" : ""}" x1="${source.x * 8.2}" y1="${source.y * 5.2}" x2="${target.x * 8.2}" y2="${target.y * 5.2}"></line>`;
         })
         .join("")}
       ${interactomeNodes
         .map(
           (node) => `
-            <g class="interactome__node interactome__node--${node.tone}" transform="translate(${node.x * 5.2} ${node.y * 4.2})">
-              <circle r="${node.size}"></circle>
-              <text y="4">${node.label}</text>
+            <g class="interactome__node interactome__node--${node.tone} ${node.id === "group4" ? "interactome__node--core" : "interactome__node--leaf"}" transform="translate(${node.x * 8.2} ${node.y * 5.2})">
+              <ellipse rx="${node.id === "group4" ? 128 : Math.max(node.label.length * 4.9, 76)}" ry="${node.id === "group4" ? 92 : 38}"></ellipse>
+              <text y="${node.id === "group4" ? -34 : 6}">
+                ${node.label
+                  .split("\n")
+                  .map((line, index) => `<tspan x="0" dy="${index === 0 ? 0 : 28}">${line}</tspan>`)
+                  .join("")}
+              </text>
               <title>${node.description}</title>
             </g>
           `,
         )
         .join("")}
-    </svg>
+      </svg>
+    </div>
   `;
 }
 
@@ -239,8 +259,8 @@ function renderDatabaseInteractome() {
             <div class="panel-heading">
               <div>
                 ${panelLabel("Interactome")}
-                <h3>Concept network placeholder</h3>
-                <p>Hover nodes to preview a slightly interactive analytical feeling.</p>
+                <h3>Interview relationship map</h3>
+                <p>Legend on the left, network in the center, and a context note on the upper right.</p>
               </div>
               <span class="panel-badge">Network</span>
             </div>
