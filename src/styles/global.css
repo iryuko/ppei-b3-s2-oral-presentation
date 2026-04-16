@@ -1095,6 +1095,11 @@ p {
   margin-bottom: 1rem;
 }
 
+.proof-panel .panel-heading h3 {
+  margin-top: 0.5rem;
+  font-size: 1.38rem;
+}
+
 .proof-timeline {
   display: grid;
   gap: 0.95rem;
@@ -1165,14 +1170,14 @@ p {
 
 .proof-step__body h4,
 .proof-evidence__card h4 {
-  font-size: 1rem;
+  font-size: 1.08rem;
 }
 
 .proof-step__body p,
 .proof-evidence__card p {
   margin-top: 0.4rem;
   color: var(--ink-soft);
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   line-height: 1.56;
 }
 
@@ -1233,10 +1238,6 @@ p {
   max-width: 20rem;
   margin-top: 0.55rem;
   font-size: 0.82rem;
-}
-
-.proof-evidence__note {
-  background: rgba(255, 255, 255, 0.9);
 }
 
 .proof-roles {

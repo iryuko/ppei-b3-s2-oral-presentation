@@ -93,6 +93,17 @@ function proofIcon(icon) {
     `;
   }
 
+  if (icon === "refreshments") {
+    return `
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7.5 8.5h8v3.7a4 4 0 0 1-4 4h0a4 4 0 0 1-4-4V8.5Z"></path>
+        <path d="M15.5 9h1.4a1.9 1.9 0 0 1 0 3.8h-1.2"></path>
+        <path d="M9 5.8c.7.7.7 1.7 0 2.4m3-2.4c.7.7.7 1.7 0 2.4"></path>
+        <path d="M8 18.3h7"></path>
+      </svg>
+    `;
+  }
+
   return `
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M12 4.8 18.3 7v4.8c0 3.6-2.1 6.5-6.3 7.9-4.2-1.4-6.3-4.3-6.3-7.9V7L12 4.8Z"></path>
@@ -482,10 +493,6 @@ function renderProof() {
                       : `<div class="proof-evidence__placeholder"><span>Business card evidence</span><p>${proofEvidencePanel.businessCardCaption}</p></div>`
                   }
                 </div>
-              </section>
-              <section class="proof-evidence__card proof-evidence__note">
-                <h4>${proofEvidencePanel.privacyTitle}</h4>
-                <p>${proofEvidencePanel.privacyNote}</p>
               </section>
               <section class="proof-evidence__card">
                 <h4>${proofEvidencePanel.rolesTitle}</h4>

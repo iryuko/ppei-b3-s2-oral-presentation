@@ -73,3 +73,4 @@ The machine originally had no `node`, `npm`, `pnpm`, `yarn`, or `bun` command av
 - Connected the four locally uploaded portrait files to their matching Team Stuff cards and changed the portrait frame to a square 1:1 crop for a cleaner presentation layout.
 - Updated the Summary & Advice content with the provided interview synthesis and rewired the interactome so links start at node borders, with larger nodes and a more compact legend.
 - Replaced the placeholder Proof section with a two-column process-evidence layout: a professional timeline on the left and a supporting-evidence panel on the right, all driven by structured data for later replacement.
+- Increased the Proof timeline typography, split refreshments into its own fifth step, and removed the duplicated privacy note from the evidence column.

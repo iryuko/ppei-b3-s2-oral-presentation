@@ -100,7 +100,7 @@ export type AdviceMeta = {
   title: string;
 };
 
-export type ProofTimelineIcon = "contact" | "schedule" | "roles" | "privacy";
+export type ProofTimelineIcon = "contact" | "schedule" | "roles" | "refreshments" | "privacy";
 
 export type ProofTimelineStep = {
   id: string;
@@ -119,8 +119,6 @@ export type ProofEvidencePanel = {
   businessCardTitle: string;
   businessCardCaption: string;
   businessCardSrc?: string;
-  privacyTitle: string;
-  privacyNote: string;
   rolesTitle: string;
 };
 
@@ -640,10 +638,16 @@ export const proofTimelineSteps: ProofTimelineStep[] = [
     icon: "roles",
   },
   {
-    id: "professional-etiquette-privacy",
-    title: "Professional Etiquette and Privacy",
+    id: "refreshments",
+    title: "Refreshments",
+    description: "We prepared basic refreshments for interviewees as a simple and respectful sign of professional courtesy.",
+    icon: "refreshments",
+  },
+  {
+    id: "privacy-security",
+    title: "Privacy and Security",
     description:
-      "We prepared basic refreshments for interviewees and respected their privacy and security concerns. Since they did not agree to photos or video recordings, we used business cards as supporting evidence instead.",
+      "We respected the interviewees' privacy and security concerns. Since they did not agree to photos or video recordings, we used business cards as supporting evidence instead.",
     icon: "privacy",
   },
 ];
@@ -659,8 +663,5 @@ export const proofEvidencePanel: ProofEvidencePanel = {
   title: "Supporting Evidence",
   businessCardTitle: "Business card image area",
   businessCardCaption: "Placeholder-friendly area reserved for business card images or later replacements.",
-  privacyTitle: "Privacy / Ethics note",
-  privacyNote:
-    "Interviewees requested privacy protection and declined photo or video documentation. Business cards were therefore used as a respectful and non-intrusive form of evidence.",
   rolesTitle: "Team role distribution",
 };
