@@ -310,23 +310,23 @@ export const interviewSummaries = [
   {
     id: "01",
     label: "INTERVIEW 01",
-    title: "Medical Device Sales Director",
+    title: "Mr. Xianfa TAN, Medical Device Sales Director",
     summary:
       "From clinician to enterprise leader, he chose industry for faster growth, broader impact, and larger platforms. His experience highlights policy pressure, compliance, new technology adoption, and the need to align technical value with market execution.",
   },
   {
     id: "02",
     label: "INTERVIEW 02",
-    title: "Mr. Yang, Quality & Registration, Humanwell Pharma",
+    title: "Ms. Mei YANG, Quality & Registration, Humanwell Pharma",
     summary:
-      "He has stayed in one company for 17 years, showing that long-term accumulation can build strong professional ability. His work emphasizes rigor, resilience, process coordination, and the value of stable teams and compliant corporate systems.",
+      "She has stayed in one company for 17 years, showing that long-term accumulation can build strong professional ability. Her work emphasizes rigor, resilience, process coordination, and the value of stable teams and compliant corporate systems.",
   },
   {
     id: "03",
     label: "INTERVIEW 03",
-    title: "Manager Gong, R&D, Humanwell Pharma",
+    title: "Ms. Nianhua GONG, R&D, Humanwell Pharma",
     summary:
-      "He entered pharmaceutical R&D after his master’s degree and focuses on product development through repeated testing and problem-solving. His experience shows that enterprise R&D values patience, technical depth, and the ability to solve practical formulation challenges.",
+      "She entered pharmaceutical R&D after her master’s degree and focuses on product development through repeated testing and problem-solving. Her experience shows that enterprise R&D values patience, technical depth, and the ability to solve practical formulation challenges.",
   },
 ];
 
