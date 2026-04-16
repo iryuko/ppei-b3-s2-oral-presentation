@@ -14,8 +14,12 @@ export function TeamSection() {
         <div className="team-grid">
           {teamMembers.map((member) => (
             <article className="team-card" key={member.id}>
-              <div className="team-card__portrait" aria-label={`${member.name} portrait placeholder`}>
-                {member.initials}
+              <div className="team-card__portrait" aria-label={`${member.name} portrait`}>
+                {member.portraitSrc ? (
+                  <img src={member.portraitSrc} alt={`${member.name} portrait`} />
+                ) : (
+                  member.initials
+                )}
               </div>
               <div className="team-card__identity">
                 <h3>{member.name}</h3>

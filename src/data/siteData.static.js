@@ -37,6 +37,7 @@ export const teamMembers = [
   {
     id: "haoyang-lu",
     initials: "HL",
+    portraitSrc: "/images/Portrait_Haoyang LU.jpg",
     name: "Haoyang LU",
     role: "Biological Sciences / 3rd year",
     basicInfo: "ryuko279@gmail.com · PPEI-B3_Group 4",
@@ -50,6 +51,7 @@ export const teamMembers = [
   {
     id: "beichen-lin",
     initials: "BL",
+    portraitSrc: "/images/Portrait_Beichen LIN.jpg",
     name: "Beichen LIN",
     role: "Biological Sciences / 3rd year",
     basicInfo: "1046849373@qq.com · PPEI-B3_G4",
@@ -63,6 +65,7 @@ export const teamMembers = [
   {
     id: "changxiao-sui",
     initials: "CS",
+    portraitSrc: "/images/Portrait_Changxiao SUI.jpg",
     name: "Changxiao SUI",
     role: "Biological Sciences / 3rd year",
     basicInfo: "u202314223@hust.edu.cn · PPEI2-B3_G4",
@@ -76,6 +79,7 @@ export const teamMembers = [
   {
     id: "ziche-wang",
     initials: "ZW",
+    portraitSrc: "/images/Portait_Ziche WANG.jpg",
     name: "Ziche WANG",
     role: "Biological Sciences / 3rd year",
     basicInfo: "3208652864@qq.com · PPEI-B3_g4",

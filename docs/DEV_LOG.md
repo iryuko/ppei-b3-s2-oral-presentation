@@ -70,3 +70,4 @@ The machine originally had no `node`, `npm`, `pnpm`, `yarn`, or `bun` command av
 - Replaced the Team Stuff placeholders with the four members' real names, emails, PPEI codes, majors, job interests, and activity fields while keeping the existing card layout.
 - Shortened the Team Stuff job-interest and field-of-activity copy to keep the cards cleaner and more presentation-friendly.
 - Reduced the Gantt chart row height and bar thickness so the full task sequence fits more comfortably within a single presentation viewport.
+- Connected the four locally uploaded portrait files to their matching Team Stuff cards and changed the portrait frame to a square 1:1 crop for a cleaner presentation layout.

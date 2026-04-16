@@ -114,7 +114,9 @@ function renderTeam() {
             .map(
               (member) => `
                 <article class="team-card">
-                  <div class="team-card__portrait" aria-label="${member.name} portrait placeholder">${member.initials}</div>
+                  <div class="team-card__portrait" aria-label="${member.name} portrait">
+                    ${member.portraitSrc ? `<img src="${member.portraitSrc}" alt="${member.name} portrait" />` : member.initials}
+                  </div>
                   <div class="team-card__identity">
                     <h3>${member.name}</h3>
                     <p>${member.role}</p>
