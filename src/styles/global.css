@@ -766,8 +766,8 @@ p {
 
 .interactome__node text {
   fill: var(--ink);
-  font-size: 0.74rem;
-  font-weight: 780;
+  font-size: 0.9rem;
+  font-weight: 790;
   text-anchor: middle;
   pointer-events: none;
 }
@@ -785,8 +785,8 @@ p {
 
 .interactome__node--core text {
   fill: var(--ink);
-  font-size: 0.78rem;
-  font-weight: 800;
+  font-size: 1rem;
+  font-weight: 810;
 }
 
 .interactome__node--blue circle {
@@ -811,11 +811,11 @@ p {
 
 .interactome-board__legend {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
+  top: 0.9rem;
+  left: 0.9rem;
   z-index: 2;
-  width: min(14rem, calc(100% - 2rem));
-  padding: 0.8rem 0.9rem;
+  width: min(11rem, calc(100% - 1.8rem));
+  padding: 0.6rem 0.7rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.9);
@@ -825,31 +825,31 @@ p {
 .interactome-board__caption {
   display: inline-flex;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 780;
   text-transform: uppercase;
 }
 
 .interactome-legend {
   display: grid;
-  gap: 0.45rem;
-  margin-top: 0.65rem;
+  gap: 0.32rem;
+  margin-top: 0.48rem;
 }
 
 .interactome-legend__item {
   display: grid;
-  grid-template-columns: 0.8rem minmax(0, 1fr);
+  grid-template-columns: 0.7rem minmax(0, 1fr);
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.45rem;
   color: var(--ink-soft);
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   font-weight: 700;
 }
 
 .interactome-legend__dot {
-  width: 0.72rem;
-  height: 0.72rem;
-  border: 2px solid currentColor;
+  width: 0.62rem;
+  height: 0.62rem;
+  border: 1.8px solid currentColor;
   border-radius: 999px;
   background: #ffffff;
 }

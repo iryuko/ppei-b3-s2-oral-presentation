@@ -84,8 +84,8 @@ export type Professional = {
 
 export type InterviewSummary = {
   id: string;
+  label: string;
   title: string;
-  person: string;
   summary: string;
 };
 
@@ -99,6 +99,11 @@ export type ProofSlot = {
   id: string;
   label: string;
   description: string;
+};
+
+export type AdviceMeta = {
+  label: string;
+  title: string;
 };
 
 const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
@@ -359,6 +364,11 @@ export const interactomeEdges: InteractomeEdge[] = [
   { source: "xianfa-tan", target: "weitao-du", style: "dashed" },
 ];
 
+export const adviceMeta: AdviceMeta = {
+  label: "SYNTHESIS",
+  title: "Main advice / recommendations",
+};
+
 export const professionals: Professional[] = [
   {
     id: "xianfa-tan",
@@ -547,46 +557,46 @@ export const professionals: Professional[] = [
 
 export const interviewSummaries: InterviewSummary[] = [
   {
-    id: "summary-1",
-    title: "Interview 01",
-    person: "Professional 1",
+    id: "01",
+    label: "INTERVIEW 01",
+    title: "Medical Device Sales Director",
     summary:
-      "Concise placeholder summary for the first professional interview, focusing on role, pathway, practical constraints, and advice relevant to PPEI_B3_S2.",
+      "From clinician to enterprise leader, he chose industry for faster growth, broader impact, and larger platforms. His experience highlights policy pressure, compliance, new technology adoption, and the need to align technical value with market execution.",
   },
   {
-    id: "summary-2",
-    title: "Interview 02",
-    person: "Professional 2",
+    id: "02",
+    label: "INTERVIEW 02",
+    title: "Mr. Yang, Quality & Registration, Humanwell Pharma",
     summary:
-      "Concise placeholder summary for the second interview, designed to keep source evidence balanced and comparable across all professionals.",
+      "He has stayed in one company for 17 years, showing that long-term accumulation can build strong professional ability. His work emphasizes rigor, resilience, process coordination, and the value of stable teams and compliant corporate systems.",
   },
   {
-    id: "summary-3",
-    title: "Interview 03",
-    person: "Professional 3",
+    id: "03",
+    label: "INTERVIEW 03",
+    title: "Manager Gong, R&D, Humanwell Pharma",
     summary:
-      "Concise placeholder summary for the third interview, ready to be replaced by final notes, selected patterns, and relevant quotations.",
+      "He entered pharmaceutical R&D after his master’s degree and focuses on product development through repeated testing and problem-solving. His experience shows that enterprise R&D values patience, technical depth, and the ability to solve practical formulation challenges.",
   },
 ];
 
 export const adviceItems: AdviceItem[] = [
   {
     id: "advice-1",
-    title: "Build transferable professional skills.",
+    title: "Choose a path that matches both your abilities and your tolerance for the work rhythm.",
     description:
-      "Connect technical knowledge with communication, organization, ethics, and decision-making under real constraints.",
+      "Sales, quality, and R&D require very different lifestyles, pressures, and strengths. Career fit matters more than job title alone.",
   },
   {
     id: "advice-2",
-    title: "Use interviews as evidence, not decoration.",
+    title: "Build long-term professional value through compliance, problem-solving, and continuous learning.",
     description:
-      "Compare patterns across professionals and synthesize the implications instead of listing raw notes.",
+      "Across all three interviews, sustainable growth comes from discipline, technical improvement, and adapting to policy, regulation, and real industry needs.",
   },
   {
     id: "advice-3",
-    title: "Make collaboration visible.",
+    title: "Use stable platforms to accumulate skills, then turn experience into wider opportunities.",
     description:
-      "Show planning, respectful communication, role distribution, reliability, and documented follow-through.",
+      "A good company, strong teamwork, and real project experience help transform early jobs into long-term career capital.",
   },
 ];
 

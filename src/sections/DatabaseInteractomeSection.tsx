@@ -13,12 +13,31 @@ import {
 
 const nodeById = new Map(interactomeNodes.map((node) => [node.id, node]));
 
+const X_SCALE = 8.2;
+const Y_SCALE = 5.2;
+
+function nodeRadius(node: InteractomeNode) {
+  return node.id === "group4" ? 108 : 52;
+}
+
 function edgeCoordinates(source: InteractomeNode, target: InteractomeNode) {
+  const sourceX = source.x * X_SCALE;
+  const sourceY = source.y * Y_SCALE;
+  const targetX = target.x * X_SCALE;
+  const targetY = target.y * Y_SCALE;
+  const dx = targetX - sourceX;
+  const dy = targetY - sourceY;
+  const length = Math.hypot(dx, dy) || 1;
+  const unitX = dx / length;
+  const unitY = dy / length;
+  const sourceRadius = nodeRadius(source);
+  const targetRadius = nodeRadius(target);
+
   return {
-    x1: source.x * 8.2,
-    y1: source.y * 5.2,
-    x2: target.x * 8.2,
-    y2: target.y * 5.2,
+    x1: sourceX + unitX * sourceRadius,
+    y1: sourceY + unitY * sourceRadius,
+    x2: targetX - unitX * targetRadius,
+    y2: targetY - unitY * targetRadius,
   };
 }
 
@@ -83,12 +102,12 @@ export function DatabaseInteractomeSection() {
                       node.id === "group4" ? "interactome__node--core" : "interactome__node--leaf"
                     }`}
                     key={node.id}
-                    transform={`translate(${node.x * 8.2} ${node.y * 5.2})`}
+                    transform={`translate(${node.x * X_SCALE} ${node.y * Y_SCALE})`}
                   >
-                    <circle r={node.id === "group4" ? 96 : 44} />
-                    <text y={node.id === "group4" ? -46 : -6}>
+                    <circle r={nodeRadius(node)} />
+                    <text y={node.id === "group4" ? -54 : -8}>
                       {node.label.split("\n").map((line, index) => (
-                        <tspan key={`${node.id}-${line}`} x="0" dy={index === 0 ? 0 : 21}>
+                        <tspan key={`${node.id}-${line}`} x="0" dy={index === 0 ? 0 : node.id === "group4" ? 24 : 22}>
                           {line}
                         </tspan>
                       ))}

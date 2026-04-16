@@ -1,5 +1,6 @@
 import {
   adviceItems,
+  adviceMeta,
   ganttTasks,
   ganttWeeks,
   institutions,
@@ -17,6 +18,33 @@ import {
 
 const root = document.getElementById("root");
 const nodeById = new Map(interactomeNodes.map((node) => [node.id, node]));
+const X_SCALE = 8.2;
+const Y_SCALE = 5.2;
+
+function nodeRadius(node) {
+  return node.id === "group4" ? 108 : 52;
+}
+
+function edgeCoordinates(source, target) {
+  const sourceX = source.x * X_SCALE;
+  const sourceY = source.y * Y_SCALE;
+  const targetX = target.x * X_SCALE;
+  const targetY = target.y * Y_SCALE;
+  const dx = targetX - sourceX;
+  const dy = targetY - sourceY;
+  const length = Math.hypot(dx, dy) || 1;
+  const unitX = dx / length;
+  const unitY = dy / length;
+  const sourceRadius = nodeRadius(source);
+  const targetRadius = nodeRadius(target);
+
+  return {
+    x1: sourceX + unitX * sourceRadius,
+    y1: sourceY + unitY * sourceRadius,
+    x2: targetX - unitX * targetRadius,
+    y2: targetY - unitY * targetRadius,
+  };
+}
 
 function sectionHeader(eyebrow, title, description) {
   return `
@@ -200,18 +228,19 @@ function renderInteractome() {
           const source = nodeById.get(edge.source);
           const target = nodeById.get(edge.target);
           if (!source || !target) return "";
-          return `<line class="interactome__edge ${edge.style === "dashed" ? "interactome__edge--dashed" : ""}" x1="${source.x * 8.2}" y1="${source.y * 5.2}" x2="${target.x * 8.2}" y2="${target.y * 5.2}"></line>`;
+          const coords = edgeCoordinates(source, target);
+          return `<line class="interactome__edge ${edge.style === "dashed" ? "interactome__edge--dashed" : ""}" x1="${coords.x1}" y1="${coords.y1}" x2="${coords.x2}" y2="${coords.y2}"></line>`;
         })
         .join("")}
       ${interactomeNodes
         .map(
           (node) => `
-            <g class="interactome__node interactome__node--${node.tone} ${node.id === "group4" ? "interactome__node--core" : "interactome__node--leaf"}" transform="translate(${node.x * 8.2} ${node.y * 5.2})">
-              <circle r="${node.id === "group4" ? 96 : 44}"></circle>
-              <text y="${node.id === "group4" ? -46 : -6}">
+            <g class="interactome__node interactome__node--${node.tone} ${node.id === "group4" ? "interactome__node--core" : "interactome__node--leaf"}" transform="translate(${node.x * X_SCALE} ${node.y * Y_SCALE})">
+              <circle r="${nodeRadius(node)}"></circle>
+              <text y="${node.id === "group4" ? -54 : -8}">
                 ${node.label
                   .split("\n")
-                  .map((line, index) => `<tspan x="0" dy="${index === 0 ? 0 : 21}">${line}</tspan>`)
+                  .map((line, index) => `<tspan x="0" dy="${index === 0 ? 0 : node.id === "group4" ? 24 : 22}">${line}</tspan>`)
                   .join("")}
               </text>
               <title>${node.description}</title>
@@ -324,8 +353,8 @@ function renderSummaryAdvice() {
               .map(
                 (summary) => `
                   <article class="summary-card">
-                    ${panelLabel(summary.title)}
-                    <h3>${summary.person}</h3>
+                    ${panelLabel(summary.label)}
+                    <h3>${summary.title}</h3>
                     <p>${summary.summary}</p>
                   </article>
                 `,
@@ -333,9 +362,8 @@ function renderSummaryAdvice() {
               .join("")}
           </div>
           <article class="advice-panel">
-            ${panelLabel("Synthesis")}
-            <h3>Main advice / recommendations</h3>
-            <p>This block is reserved for the team's final synthesis. It is visually larger because it should carry the conclusion of the interview work during the oral presentation.</p>
+            ${panelLabel(adviceMeta.label)}
+            <h3>${adviceMeta.title}</h3>
             <div class="advice-list">
               ${adviceItems
                 .map(

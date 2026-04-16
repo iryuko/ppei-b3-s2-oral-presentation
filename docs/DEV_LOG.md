@@ -71,3 +71,4 @@ The machine originally had no `node`, `npm`, `pnpm`, `yarn`, or `bun` command av
 - Shortened the Team Stuff job-interest and field-of-activity copy to keep the cards cleaner and more presentation-friendly.
 - Reduced the Gantt chart row height and bar thickness so the full task sequence fits more comfortably within a single presentation viewport.
 - Connected the four locally uploaded portrait files to their matching Team Stuff cards and changed the portrait frame to a square 1:1 crop for a cleaner presentation layout.
+- Updated the Summary & Advice content with the provided interview synthesis and rewired the interactome so links start at node borders, with larger nodes and a more compact legend.
