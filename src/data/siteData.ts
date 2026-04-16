@@ -94,6 +94,8 @@ export type ProofSlot = {
   description: string;
 };
 
+const publicAsset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+
 export const projectMeta: ProjectMeta = {
   course: "PPEI_B3_S2",
   team: "Team B",
@@ -108,14 +110,14 @@ export const institutions: Institution[] = [
     shortName: "HUST",
     fullName: "Huazhong University of Science and Technology",
     href: "https://www.hust.edu.cn/",
-    logoSrc: "/icons/HUST.png",
+    logoSrc: publicAsset("icons/HUST.png"),
     logoShape: "seal",
   },
   {
     shortName: "UPS",
     fullName: "Universite Evry Paris-Saclay",
     href: "https://www.univ-evry.fr/",
-    logoSrc: "/icons/UPS.png",
+    logoSrc: publicAsset("icons/UPS.png"),
     logoShape: "wordmark",
   },
 ];
