@@ -68,4 +68,5 @@ The machine originally had no `node`, `npm`, `pnpm`, `yarn`, or `bun` command av
 - Rolled the interactome visual language back to the site's cleaner UI system while keeping the source image's actual names, relationship content, and explanatory sentence.
 - Replaced the placeholder database content with the three interviewees' actual table data and updated the Gantt section with the dated task sequence and responsible members from the provided chart.
 - Replaced the Team Stuff placeholders with the four members' real names, emails, PPEI codes, majors, job interests, and activity fields while keeping the existing card layout.
+- Shortened the Team Stuff job-interest and field-of-activity copy to keep the cards cleaner and more presentation-friendly.
 - Reduced the Gantt chart row height and bar thickness so the full task sequence fits more comfortably within a single presentation viewport.

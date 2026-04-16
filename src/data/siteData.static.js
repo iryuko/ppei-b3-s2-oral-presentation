@@ -41,10 +41,10 @@ export const teamMembers = [
     role: "Biological Sciences / 3rd year",
     basicInfo: "ryuko279@gmail.com · PPEI-B3_Group 4",
     jobsOfInterest: [
-      "Interested in becoming a Biomedical Data Scientist, combining biology, computation, and data-driven problem solving, with a strong focus on bioinformatics, programming, and quantitative analysis.",
+      "Biomedical Data Scientist focused on bioinformatics, programming, and data analysis.",
     ],
     fieldsOfActivity: [
-      "Mainly active in academic research, biotechnology, pharmaceuticals, hospitals, and digital health, especially in genomic data analysis, precision medicine, and biomedical innovation.",
+      "Academic research, biotech, healthcare, and precision medicine.",
     ],
   },
   {
@@ -54,10 +54,10 @@ export const teamMembers = [
     role: "Biological Sciences / 3rd year",
     basicInfo: "1046849373@qq.com · PPEI-B3_G4",
     jobsOfInterest: [
-      "Interested in working as a Teacher, focusing on educating students, preparing lessons, supporting development, and creating an effective learning environment.",
+      "Teacher focused on student learning, lesson delivery, and classroom support.",
     ],
     fieldsOfActivity: [
-      "Mainly oriented toward the education and training sector, including schools and teaching environments such as primary, secondary, higher, vocational, and special education.",
+      "Education and training, including schools and teaching institutions.",
     ],
   },
   {
@@ -67,10 +67,10 @@ export const teamMembers = [
     role: "Biological Sciences / 3rd year",
     basicInfo: "u202314223@hust.edu.cn · PPEI2-B3_G4",
     jobsOfInterest: [
-      "Interested in becoming a Neurobiology Researcher, studying the brain and nervous system through experiments, biological data analysis, and research on neurological disorders.",
+      "Neurobiology Researcher focused on brain science and neurological disorders.",
     ],
     fieldsOfActivity: [
-      "Works mainly in neuroscience and neurobiology, usually in universities, research institutes, hospitals, or biotech and pharmaceutical companies focused on brain science and neurological disease research.",
+      "Neuroscience research in universities, hospitals, and biotech.",
     ],
   },
   {
@@ -80,10 +80,10 @@ export const teamMembers = [
     role: "Biological Sciences / 3rd year",
     basicInfo: "3208652864@qq.com · PPEI-B3_g4",
     jobsOfInterest: [
-      "Interested in becoming a Microbiologist, exploring microorganisms such as bacteria, viruses, fungi, and algae through experimental research, pathogen study, and applied microbiology.",
+      "Microbiologist focused on microbial research and applied microbiology.",
     ],
     fieldsOfActivity: [
-      "Mainly active in healthcare, biotechnology, pharmaceuticals, food safety, and agriculture, with applications in disease diagnosis, microbial engineering, and industrial fermentation.",
+      "Healthcare, biotech, food safety, and agriculture.",
     ],
   },
 ];
