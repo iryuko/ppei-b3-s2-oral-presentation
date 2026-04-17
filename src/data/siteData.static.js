@@ -171,7 +171,7 @@ export const professionals = [
         id: "role",
         title: "Company & role",
         fields: [
-          { label: "Company", value: "Not specified in the source table" },
+          { label: "Company", value: "Hubei Bokang Pharmaceutical Technology Co., Ltd." },
           { label: "Department", value: "sales departments" },
           { label: "Duty of job", value: "sales director" },
           { label: "Wages monthly", value: "-" },
